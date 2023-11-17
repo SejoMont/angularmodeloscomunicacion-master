@@ -1,0 +1,21 @@
+<div>
+    <h1>Personas</h1>
+    <table class="table table-striped text-center" style="width: 70%; margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>Id Persona</th>
+                <th>Nombre</th>
+                <th>Mail</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of personas">
+                <td>{{person.IdPersona}}</td>
+                <td>{{person.Nombre}}</td>
+                <td>{{person.Email}}</td>
+                <td>{{person.Edad}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

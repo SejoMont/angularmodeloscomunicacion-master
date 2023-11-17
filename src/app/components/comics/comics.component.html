@@ -1,0 +1,28 @@
+<div>
+  <h1 style="color: blue">Comics Component</h1>
+  <hr />
+  <form>
+    <label>Titulo:</label>
+    <input type="text" id="nuevoNombre" [(ngModel)]="nuevoComic.nombre" name="nuevoNombre"/><br /><br />
+    <label>Imagen:</label>
+    <input type="text" id="nuevaImagen" [(ngModel)]="nuevoComic.imagen" name="nuevaImagen"/><br /><br />
+    <label>Descripcion:</label>
+    <input type="text" id="nuevoPersonaje" [(ngModel)]="nuevoComic.personaje" name="nuevoPersonaje"/><br />
+    <button style="background-color: greenyellow" (click)="agregarComic()">Insertar comic</button>
+  </form>
+  <hr />
+  <div *ngIf="favorito" style="background-color: aquamarine">
+    <h1 style="color: red">COMIC FAVORITO:</h1>
+    <h1>{{ favorito.nombre }}</h1>
+    <img src="{{ favorito.imagen }}" style="width: 250px; height: 250px" />
+    <h2>{{ favorito.personaje }}</h2>
+  </div>
+  <div *ngFor="let com of comics">
+    <app-comic
+      [comic]="com"
+      (seleccionarComicFavorito)="seleccionarComicFavorito($event)"
+      (eliminarComic)="eliminarComic($event)"
+      (modificarComic)="modificarComic($event)"
+    ></app-comic>
+  </div>
+</div>
